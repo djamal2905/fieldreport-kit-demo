@@ -143,6 +143,25 @@ h1 { font: 800 clamp(30px, 5vw, 50px)/1.04 var(--display); letter-spacing: -.02e
 .dash figcaption { font-size: 13px; color: var(--muted); padding: 10px 14px; background: var(--surface); border-top: 1px solid var(--line); }
 @media (max-width: 760px) { .dash { grid-template-columns: 1fr; } }
 
+/* offers and licence */
+.offers { display: grid; gap: 18px; }
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.plan { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.plan.featured { border: 2px solid var(--accent); }
+.plan .name { font: 700 13px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.plan .price { font: 800 40px/1 var(--display); letter-spacing: -.02em; }
+.plan .price small { font: 600 15px/1 var(--body); color: var(--muted); letter-spacing: 0; }
+.plan .fcfa { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.plan .seats { font-weight: 600; }
+.plan ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(--muted); font-size: 15.5px; }
+.plan .for { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; margin-top: auto; }
+.terms { font-size: 14.5px; color: var(--muted); max-width: 80ch; }
+.licence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.licence div { border-top: 2px solid var(--ink); padding-top: 12px; display: grid; gap: 6px; }
+.licence b { font: 700 17px/1.25 var(--display); }
+.licence p { margin: 0; color: var(--muted); font-size: 15px; }
+@media (max-width: 860px) { .plans, .licence { grid-template-columns: 1fr; } }
+
 /* audience and facts */
 h2 { font: 700 26px/1.15 var(--display); margin: 0; letter-spacing: -.01em; }
 .who { display: grid; gap: 18px; }
@@ -386,6 +405,64 @@ h2 { font: 700 26px/1.15 var(--display); margin: 0; letter-spacing: -.01em; }
     </figure>
   </section>
 
+  <section class="offers" aria-labelledby="offers-title">
+    <span class="eyebrow">Offres</span>
+    <h2 id="offers-title">Un prix fixe, une licence perpétuelle, sans abonnement.</h2>
+    <div class="plans">
+      <article class="plan" aria-label="Offre Essentiel">
+        <span class="name">Essentiel</span>
+        <span class="price">290 € <small>HT</small></span>
+        <span class="fcfa">190 000 FCFA</span>
+        <span class="seats">1 ordinateur</span>
+        <ul>
+          <li>Import des exports KoBoToolbox, ODK, Excel, avec leur formulaire</li>
+          <li>Contrôle qualité et versions des données</li>
+          <li>11 tests statistiques vérifiés contre R</li>
+          <li>Tableaux de bord et indicateurs ventilés</li>
+          <li>Exports Excel, sauvegardes</li>
+        </ul>
+        <span class="for">Pour une petite ONG ou un chargé de suivi-évaluation.</span>
+      </article>
+      <article class="plan featured" aria-label="Offre Terrain">
+        <span class="name">Terrain</span>
+        <span class="price">590 € <small>HT</small></span>
+        <span class="fcfa">387 000 FCFA</span>
+        <span class="seats">1 ordinateur</span>
+        <ul>
+          <li>Tout Essentiel</li>
+          <li>Entretiens : transcription automatique hors ligne</li>
+          <li>Codage qualitatif, livre de codes, matrice</li>
+          <li>Rapports Word et PDF en français, traçables</li>
+        </ul>
+        <span class="for">Pour une équipe projet qui mène questionnaires et entretiens.</span>
+      </article>
+      <article class="plan" aria-label="Offre Organisation">
+        <span class="name">Organisation</span>
+        <span class="price">1 490 € <small>HT</small></span>
+        <span class="fcfa">977 000 FCFA</span>
+        <span class="seats">5 ordinateurs</span>
+        <ul>
+          <li>Tout Terrain</li>
+          <li>Méthodes mixtes : questionnaires et entretiens croisés</li>
+          <li>Assistant IA local (propositions de codes vérifiées par une personne)</li>
+          <li>Prise en main à distance (2 h)</li>
+        </ul>
+        <span class="for">Pour un bureau pays, un bureau d'études ou un institut.</span>
+      </article>
+    </div>
+    <p class="terms">Prix hors taxes, version 0.7. Ordinateur supplémentaire pour une licence 1 poste : 190 € (125 000 FCFA). Passage à la version suivante : 40 % du prix de l'offre. Formation d'une journée sur devis.</p>
+  </section>
+
+  <section class="offers" aria-labelledby="licence-title">
+    <span class="eyebrow">Licence</span>
+    <h2 id="licence-title">Activée une fois par ordinateur, sans Internet.</h2>
+    <div class="licence">
+      <div><b>Perpétuelle</b><p>Vous gardez le droit d'utiliser votre version sans limite de durée, avec ses corrections. Garantie de 90 jours.</p></div>
+      <div><b>Liée à l'ordinateur</b><p>Votre clé s'active sur 1 ordinateur (5 pour l'offre Organisation). Un ordinateur en panne ? Nous libérons l'activation et activons le nouveau.</p></div>
+      <div><b>Vos données restent chez vous</b><p>L'activation n'échange qu'un code d'ordinateur, jamais vos données. Le contrat de licence s'affiche à l'installation.</p></div>
+    </div>
+  </section>
+
   <section class="who" aria-labelledby="who-title">
     <h2 id="who-title">Pour qui</h2>
     <div class="cards">
@@ -402,7 +479,7 @@ h2 { font: 700 26px/1.15 var(--display); margin: 0; letter-spacing: -.01em; }
     <div class="fact"><dt>Fonctionne</dt><dd>Windows 10 et 11, sans Internet, en français ou en anglais ; licence perpétuelle, 1 ou 5 ordinateurs</dd></div>
   </dl>
 
-  <p class="foot">Démonstration sur demande, avec vos propres données ou avec le projet d'exemple. Les captures du film viennent du logiciel ; les données affichées sont fictives.</p>
+  <p class="foot">Démonstration sur demande, avec vos propres données ou avec le projet d'exemple ; devis et facture en euros ou en FCFA. Les captures du film viennent du logiciel ; les données affichées sont fictives.</p>
 </main>
 
 <button class="music" id="music" type="button" aria-pressed="false">
